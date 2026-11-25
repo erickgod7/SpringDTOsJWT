@@ -1,10 +1,7 @@
 package com.example.demo.model;
 
-import java.util.Optional;
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +15,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 @Getter
 @Builder
 @NoArgsConstructor
@@ -28,18 +24,29 @@ import lombok.Setter;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Setter 
+    @Setter
     private String id;
+
+    @Setter
     private String username;
+
+    @Setter
     private String comentario_corto;
+
+    @Setter
     private Short estrellas;
+
+    @Setter
     private String comentario_largo;
+
+    @Setter
     private String imagen1;
+
+    @Setter
     private String imagen2;
-    
+
     @JsonBackReference
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @Setter
     private Producto producto;
-
 }
